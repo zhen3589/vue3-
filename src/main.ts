@@ -1,9 +1,19 @@
 import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
-import './assets/less/index.less'
+import App from "@/App.vue";
 
-const app = createApp(App);
-app.use(router);
+import { setupRouter } from "@/router";
+import { setupStore } from "@/store";
 
-app.mount("#app");
+import "@/assets/less/index.less";
+
+function setupApp() {
+  const app = createApp(App);
+
+  setupRouter(app);
+
+  setupStore(app);
+
+  app.mount("#app");
+}
+
+setupApp();
