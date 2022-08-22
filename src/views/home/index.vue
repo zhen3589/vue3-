@@ -15,7 +15,10 @@ const userStore = useUserStore();
 
 sessionTimeoutApi({
   name: "123"
-});
+}).then(res=>{
+  console.log(res);
+  
+})
 
 </script>
 

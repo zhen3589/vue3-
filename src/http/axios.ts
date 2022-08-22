@@ -1,7 +1,8 @@
 import axios from 'axios'
+import router from '@/router'
 
 const defHttp = axios.create({
-    baseURL: 'http://suggest.taobao.com',
+    baseURL: import.meta.env.VITE_PUBLIC_PATH,
     timeout: 3000,
     headers: {
         'token': '1123'
@@ -10,17 +11,29 @@ const defHttp = axios.create({
 
 // interceptors axios的拦截器对象
 defHttp.interceptors.request.use(config => {
-    console.log('拦截到了');
-    console.log(config);
-    
+
     return config
 }, err => {
     Promise.reject(err)
 })
 
 defHttp.interceptors.response.use(res => {
-    console.log(res)
-    return Promise.resolve(res)
+
+    if (res.status === 200) {
+
+        const { code, data } = res.data;
+
+        if (code === 200) {
+            return Promise.resolve(data)
+        } else if (code === 401) {
+            
+            return router.push({
+                path:'/login'
+            })
+        }
+
+    }
+    
 }, err => {
     Promise.reject(err)
 })
