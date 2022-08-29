@@ -17,6 +17,7 @@
 - 使用 gzip 或者 brotli 来压缩资源
 - pinia 持久化 pinia-plugin-persist
 - 常用工具库，复用的uview组件方法库
+- dayjs
 
 #### 安装依赖
 `npm install`或者`yarn install`
