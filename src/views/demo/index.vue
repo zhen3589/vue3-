@@ -19,7 +19,11 @@
 
 <script lang="ts" setup>
 
+import dayjs from 'dayjs'
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useUserStore } from '@/store/modules/user'
+
+dayjs.extend(isSameOrAfter);
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -28,14 +32,16 @@ const goMine = () => {
     router.push('mine')
 }
 
-let userName = computed<string>(()=> userStore.userNmae)
+let userName = computed<string>(() => userStore.userNmae)
 
-const onChange = ()=>{
-    console.log(userStore.increment('新的数据'));
-    
+const onChange = () => {
+    userStore.increment('新的数据12222')
 }
 
 onMounted(() => {
+    
+    const date = dayjs("2021-09-16 02:03:04").isSameOrAfter("2021-09-16 02:03:05"); 
+    console.log(date);
 
 })
 </script>
@@ -44,10 +50,8 @@ onMounted(() => {
 ul {
 
     li {
-        color: #fff;
 
         nav {
-            background-color: @primary;
             padding: 10px;
         }
 
@@ -58,13 +62,14 @@ ul {
             border-radius: 3px;
 
             &:hover {
-                background-color: @color-warning;
+                opacity: 0.8;
                 cursor: pointer;
             }
         }
 
         .text {
             color: @text-color;
+            padding: 5px 0;
         }
     }
 }

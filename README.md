@@ -16,6 +16,7 @@
 - 对 index.html 注入动态数据
 - 使用 gzip 或者 brotli 来压缩资源
 - pinia 持久化 pinia-plugin-persist
+- 常用工具库，复用的uview组件方法库
 
 #### 安装依赖
 `npm install`或者`yarn install`
