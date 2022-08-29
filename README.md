@@ -15,6 +15,7 @@
 - hooks 自动引入
 - 对 index.html 注入动态数据
 - 使用 gzip 或者 brotli 来压缩资源
+- pinia 持久化 pinia-plugin-persist
 
 #### 安装依赖
 `npm install`或者`yarn install`
