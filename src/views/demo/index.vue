@@ -6,21 +6,37 @@
                 <nav>路由跳转</nav>
                 <button @click="goMine">路由跳转至我的</button>
             </li>
+
+            <li>
+                <nav>pinia使用方式</nav>
+                <div class="text">获取数据({{ userName }})</div>
+                <button @click="onChange">改变pinia数据</button>
+            </li>
         </ul>
 
     </div>
 </template>
 
 <script lang="ts" setup>
+
+import { useUserStore } from '@/store/modules/user'
+
 const router = useRouter();
+const userStore = useUserStore();
 
 const goMine = () => {
     router.push('mine')
 }
 
-onMounted(()=>{
-    console.log('挂载完成');
+let userName = computed<string>(()=> userStore.userNmae)
+
+const onChange = ()=>{
+    console.log(userStore.increment('新的数据'));
     
+}
+
+onMounted(() => {
+
 })
 </script>
 
@@ -45,6 +61,10 @@ ul {
                 background-color: @color-warning;
                 cursor: pointer;
             }
+        }
+
+        .text {
+            color: @text-color;
         }
     }
 }
