@@ -5,7 +5,7 @@ export const useUserStore = defineStore({
     state: () => {
         return {
             count: 0,
-            userNmae: '基础脚手架'
+            userNmae: '基础脚手架',
         };
     },
     persist: {

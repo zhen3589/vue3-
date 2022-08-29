@@ -5,6 +5,7 @@ export const basicRoutes: Array<any> = [
         meta: {
             title: "首页",
             keepAlive: true,
+            isLogin: false
         },
         component: () => import("@/views/home/index.vue"),
     },

@@ -14,17 +14,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const isLogin: boolean = (to.meta.isLogin as false) || false;
-    let token: boolean = (to.meta.aaa as false) || false;
+    const isLogin: boolean = to.meta.isLogin ? true : false;
+    const token: boolean = localStorage.getItem('token') ? true : false;
 
     if (isLogin && !token) {
         next({
             path: "/login",
             query: {
-                redirect: to.path,
+                redirect: to.path
             },
         });
-        token = true;
     } else {
         next();
     }
