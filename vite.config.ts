@@ -54,6 +54,6 @@ export default defineConfig({
       },
     }),
     // 使用 gzip 或者 brotli 来压缩资源
-    viteCompression()
+    viteCompression(),
   ],
 });

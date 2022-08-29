@@ -24,4 +24,12 @@ export const basicRoutes: Array<any> = [
     },
     component: () => import("@/views/login/index.vue"),
   },
+  {
+    path: "/demo",
+    name: "demo",
+    meta: {
+      title: "模板",
+    },
+    component: () => import("@/views/demo/index.vue"),
+  },
 ];

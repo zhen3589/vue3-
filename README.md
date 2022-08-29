@@ -12,6 +12,9 @@
 - 路由拦截
 - 请求/响应拦截
 - 代理跨域
+- hooks 自动引入
+- 对 index.html 注入动态数据
+- 使用 gzip 或者 brotli 来压缩资源
 
 #### 安装依赖
 `npm install`或者`yarn install`

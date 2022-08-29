@@ -5,20 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onActivated, onMounted } from "vue";
-import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/modules/user";
-import { sessionTimeoutApi } from "@/http/api/index";
 
 const router = useRouter();
 const userStore = useUserStore();
-
-sessionTimeoutApi({
-  name: "123"
-}).then(res=>{
-  console.log(res);
-  
-})
 
 </script>
 
