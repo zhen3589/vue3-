@@ -1,5 +1,6 @@
 <template>
   <div class="box">
+    <tabs></tabs>
     <input :value="userStore.count" type="text" name="" id="" />
   </div>
 </template>

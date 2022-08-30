@@ -18,6 +18,7 @@
 - pinia 持久化 pinia-plugin-persist
 - 常用工具库，复用的uview组件方法库
 - dayjs
+- 自动按需引入组件
 
 #### 安装依赖
 `npm install`或者`yarn install`
