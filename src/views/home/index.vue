@@ -13,8 +13,8 @@ const userStore = useUserStore();
 
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .box {
-  color: @primary;
+  color: red;
 }
 </style>

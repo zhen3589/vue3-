@@ -39,14 +39,14 @@ const onChange = () => {
 }
 
 onMounted(() => {
-    
-    const date = dayjs("2021-09-16 02:03:04").isSameOrAfter("2021-09-16 02:03:05"); 
+
+    const date = dayjs("2021-09-16 02:03:04").isSameOrAfter("2021-09-16 02:03:05");
     console.log(date);
 
 })
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 ul {
 
     li {
@@ -57,9 +57,8 @@ ul {
 
         button {
             padding: 10px;
-            background-color: @color-primary;
-            color: #fff;
             border-radius: 3px;
+            color:$primary;
 
             &:hover {
                 opacity: 0.8;
@@ -68,7 +67,6 @@ ul {
         }
 
         .text {
-            color: @text-color;
             padding: 5px 0;
         }
     }

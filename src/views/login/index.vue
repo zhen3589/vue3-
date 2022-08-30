@@ -13,8 +13,8 @@ const goIndex = () => {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .login {
-    color: @primary;
+   
 }
 </style>

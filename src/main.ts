@@ -4,7 +4,7 @@ import App from "@/App.vue";
 import { setupRouter } from "@/router";
 import { setupStore } from "@/store";
 
-import "@/assets/less/index.less";
+import "@/assets/scss/default.scss";
 
 function setupApp() {
   const app = createApp(App);

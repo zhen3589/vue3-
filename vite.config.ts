@@ -30,10 +30,9 @@ export default defineConfig({
     css: {
         // css预处理器
         preprocessorOptions: {
-            less: {
-                charset: false,
-                additionalData: '@import "./src/assets/less/index.less";',
-            },
+            scss: {
+                additionalData: '@import "@/assets/scss/global.scss";'
+            }
         },
     },
     plugins: [

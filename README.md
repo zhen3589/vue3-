@@ -8,9 +8,9 @@
 - vue-router
 - pinia
 - axios 
-- less
+- scss
 - 路径别名 `@/`映射`./src`
-- less 全局配置
+- scss 全局配置
 - 路由拦截
 - 请求/响应拦截
 - 代理跨域
