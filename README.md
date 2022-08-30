@@ -2,6 +2,8 @@
 
 > node版本推荐 v18.6.0
 
+> 安装yarn：`npm install -g yarn --registry https://registry.npm.taobao.org`
+
 #### 封装内容
 - vue-router
 - pinia
