@@ -23,7 +23,15 @@
 `npm install`或者`yarn install`
 
 #### 启动项目
+
+- 开发环境
 `npm run dev`或`yarn run dev`
+
+- 测试环境
+`npm run dev:test`或`yarn run dev:test`
+
+- 正式环境
+`npm run dev:pro`或`yarn run dev:pro`
 
 #### 打包项目
 `npm run build`或`yarn run build`
