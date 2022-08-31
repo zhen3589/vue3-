@@ -10,6 +10,7 @@ import path from 'path'
 const config = loadEnv('development', './')
 
 const pathSrc = path.resolve(__dirname, 'src')
+console.log(config.VITE_REQUEST_URL);
 
 export default defineConfig({
 

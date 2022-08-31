@@ -1,16 +1,23 @@
 import axios from 'axios'
 import router from '@/router'
+import { ElMessage } from 'element-plus'
 
 const defHttp = axios.create({
     baseURL: import.meta.env.VITE_PUBLIC_PATH,
     timeout: 3000,
-    headers: {
-        'token': '1123'
-    }
 })
 
 // interceptors axios的拦截器对象
 defHttp.interceptors.request.use(config => {
+
+    const token: string = localStorage.getItem('token') as string;
+    if (token) {
+        config.headers['token'] = token;
+    }
+
+    if (config.method === 'post') {
+        config.headers['Content-Type'] = "application/x-www-form-urlencoded";
+    }
 
     return config
 }, err => {
@@ -24,17 +31,24 @@ defHttp.interceptors.response.use(res => {
         const { code, data } = res.data;
 
         if (code === 200) {
-            return Promise.resolve(data)
+            return res.data;
         } else if (code === 401) {
-            
-            return router.push({
-                path:'/login'
+            ElMessage({
+                message: '登录失效请重新登录.',
+                type: 'warning',
             })
+            return router.push({
+                path: '/login'
+            })
+        } else {
+            ElMessage.error('系统错误')
         }
 
+        return false;
     }
-    
+
 }, err => {
+    ElMessage.error('系统错误')
     Promise.reject(err)
 })
 

@@ -33,6 +33,7 @@
 import dayjs from 'dayjs'
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useUserStore } from '@/store/modules/user'
+import {sessionTimeoutApi} from '@/http/api/index'
 
 dayjs.extend(isSameOrAfter);
 
@@ -51,8 +52,17 @@ const onChange = () => {
 
 onMounted(() => {
 
-    const date = dayjs("2021-09-16 02:03:04").isSameOrAfter("2021-09-16 02:03:05");
-    console.log(date);
+    const FormData = {
+        name:'李飞',
+        ages:"1"
+    }
+    sessionTimeoutApi(FormData).then(resl=>{
+        console.log(resl);
+        if(resl) {
+            const data = resl.result;
+            userStore.increment(data.from);
+        }
+    })
 
 })
 </script>
