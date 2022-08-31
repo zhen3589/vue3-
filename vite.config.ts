@@ -3,10 +3,13 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import viteCompression from 'vite-plugin-compression';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vue from "@vitejs/plugin-vue";
 import path from 'path'
 
 const config = loadEnv('development', './')
+
+const pathSrc = path.resolve(__dirname, 'src')
 
 export default defineConfig({
 
@@ -24,15 +27,16 @@ export default defineConfig({
     resolve: {
         // 配置路径别名
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@/': `${pathSrc}/`,
+            '~/': `${pathSrc}/`,
         },
     },
     css: {
         // css预处理器
         preprocessorOptions: {
             scss: {
-                additionalData: '@import "@/assets/scss/global.scss";'
-            }
+                additionalData: `@use "~/styles/element/index.scss" as *;`,
+            },
         },
     },
     plugins: [
@@ -40,7 +44,8 @@ export default defineConfig({
         //  hooks 自动引入
         AutoImport({
             imports: ['vue', 'vue-router', 'vuex', '@vueuse/head'],
-            dts: 'src/auto-import.d.ts'
+            dts: 'src/auto-import.d.ts',
+            resolvers: [ElementPlusResolver()],
         }),
         // 对 index.html 注入动态数据
         createHtmlPlugin({
@@ -59,11 +64,14 @@ export default defineConfig({
         Components({
             dirs: ['src/components'], // 目标文件夹
             extensions: ['vue', 'jsx'], // 文件类型
+            include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
             dts: 'src/components.d.ts', // 输出文件，里面都是一些import的组件键值对
             // ui库解析器，也可以自定义，需要安装相关UI库
             resolvers: [
                 // VantResolver(),
-                // ElementPlusResolver(),
+                ElementPlusResolver({
+                    importStyle: 'sass',
+                  }),
                 // AntDesignVueResolver(),
                 // HeadlessUiResolver(),
                 // ElementUiResolver()
