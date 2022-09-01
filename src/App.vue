@@ -12,8 +12,8 @@
 <script setup lang="ts">
 
 type ConfigGrovider = {
-  max: number,
-  size: string,
+  max: any,
+  size: string | any,
   autoInsertSpace: boolean
 }
 
