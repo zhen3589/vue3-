@@ -24,5 +24,4 @@ const config = reactive<ConfigGrovider>({
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
