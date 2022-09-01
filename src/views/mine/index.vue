@@ -1,15 +1,16 @@
 <template>
-    <div class="box">
-        2231a
+    <div class='app-content'>
+        我的
     </div>
 </template>
 
-<script lang="ts" setup>
 
+<script lang='ts' setup>
+    
 </script>
 
-<style lang="scss" scoped>
-.box {
-    
-}
+<style lang='scss' scoped>
+    .app-content {
+        
+    }
 </style>

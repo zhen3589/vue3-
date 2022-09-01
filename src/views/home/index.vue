@@ -1,20 +1,16 @@
 <template>
-  <div class="box">
-    <tabs></tabs>
-    <input :value="userStore.count" type="text" name="" id="" />
+  <div class='app-content'>
+    首页
   </div>
 </template>
 
-<script lang="ts" setup>
-import { useUserStore } from "@/store/modules/user";
 
-const router = useRouter();
-const userStore = useUserStore();
-
+<script lang='ts' setup>
+  
 </script>
 
-<style lang="scss" scoped>
-.box {
-  color: red;
-}
+<style lang='scss' scoped>
+  .app-content {
+    
+  }
 </style>
