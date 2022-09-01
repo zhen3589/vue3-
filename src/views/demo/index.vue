@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <input type="text" name="" id="">
         <ul>
             <li>
                 <nav>路由跳转</nav>
@@ -14,14 +14,23 @@
             </li>
         </ul>
 
+
+        <ul>
+            <li v-for="(item, index) in image_data.list" :key="item.id">
+                <p>{{ item.title }}</p>
+                <!-- <img :src="item.url" alt=""> -->
+            </li>
+        </ul>
+
     </div>
 </template>
 
 <script lang="ts" setup>
 
-import dayjs from 'dayjs'
+import * as dayjs from 'dayjs'
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useUserStore } from '@/store/modules/user'
+import { sessionTimeoutApi, getImages } from '@/http/api/index'
 
 dayjs.extend(isSameOrAfter);
 
@@ -29,21 +38,56 @@ const router = useRouter();
 const userStore = useUserStore();
 
 const goMine = () => {
-    router.push('mine')
+    router.push('/')
 }
+
+
+const props = defineProps<{
+    name: string
+}>();
+
+const emit = defineEmits(['click']);
+
 
 let userName = computed<string>(() => userStore.userNmae)
 
+const image_data = reactive({
+    list: [],
+    getImages() {
+        getImages().then(res => {
+            console.log(res);
+            if (res) {
+                const data = res.result;
+                image_data.list = data.list;
+            }
+        })
+    }
+})
+
 const onChange = () => {
-    userStore.increment('新的数据12222')
+    getData();
 }
 
-onMounted(() => {
-
-    const date = dayjs("2021-09-16 02:03:04").isSameOrAfter("2021-09-16 02:03:05");
-    console.log(date);
+onMounted(async () => {
+    image_data.getImages()
 
 })
+
+onActivated(()=>{
+    
+})
+
+const getData = () => {
+    sessionTimeoutApi({
+        name: 'qwe'
+    }).then(res => {
+        if (res) {
+            const data = res.result;
+            userStore.increment(data.name);
+            emit('click', data.name)
+        }
+    })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -58,7 +102,7 @@ ul {
         button {
             padding: 10px;
             border-radius: 3px;
-            color:$primary;
+            color: $primary;
 
             &:hover {
                 opacity: 0.8;

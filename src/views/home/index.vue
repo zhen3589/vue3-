@@ -1,20 +1,24 @@
 <template>
-  <div class="box">
-    <tabs></tabs>
-    <input :value="userStore.count" type="text" name="" id="" />
+  <div class='app-content'>
+    <img src="/public/vite.svg" alt="">
   </div>
 </template>
 
-<script lang="ts" setup>
-import { useUserStore } from "@/store/modules/user";
 
-const router = useRouter();
-const userStore = useUserStore();
-
+<script lang='ts' setup>
+  
 </script>
 
-<style lang="scss" scoped>
-.box {
-  color: red;
-}
+<style lang='scss' scoped>
+  .app-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+
+    h1 {
+      font-size: 34px;
+    }
+  }
 </style>

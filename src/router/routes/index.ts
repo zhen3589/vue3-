@@ -15,7 +15,7 @@ export const basicRoutes: Array<any> = [
         meta: {
             title: "我的",
         },
-        component: () => import("@/views/mine/index.vue"),
+        component: () => defineAsyncComponent(() => import("@/views/mine/index.vue")),
     },
     {
         path: "/login",
@@ -30,6 +30,7 @@ export const basicRoutes: Array<any> = [
         name: "demo",
         meta: {
             title: "模板",
+            keepAlive: true,
         },
         component: () => import("@/views/demo/index.vue"),
     },
