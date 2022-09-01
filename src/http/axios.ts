@@ -12,11 +12,15 @@ defHttp.interceptors.request.use(config => {
 
     const token: string = localStorage.getItem('token') as string;
     if (token) {
-        config.headers['token'] = token;
+        config.headers = {
+            "token" : token
+        };
     }
 
     if (config.method === 'post') {
-        config.headers['Content-Type'] = "application/x-www-form-urlencoded";
+        config.headers = {
+            'Content-Type': "application/x-www-form-urlencoded";
+        } 
     }
 
     return config

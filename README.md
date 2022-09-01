@@ -21,6 +21,9 @@
 - 常用工具库，复用的uview组件方法库
 - dayjs
 - 自动按需引入组件
+- 主题切换配置
+- 黑暗主题配置
+- 自动引入element-plus Api配置
 
 #### 安装依赖
 `npm install`或者`yarn install`
