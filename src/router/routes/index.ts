@@ -7,7 +7,7 @@ export const basicRoutes: Array<any> = [
             keepAlive: true,
             isLogin: false
         },
-        component: () => import("@/views/home/index.vue"),
+        component: () => import("@/views/home/index.vue")
     },
     {
         path: "/mine",
@@ -15,7 +15,7 @@ export const basicRoutes: Array<any> = [
         meta: {
             title: "我的",
         },
-        component: () => import("@/views/mine/index.vue"),
+        component: () => import("@/views/mine/index.vue")
     },
     {
         path: "/login",
@@ -23,7 +23,7 @@ export const basicRoutes: Array<any> = [
         meta: {
             title: "登录",
         },
-        component: () => import("@/views/login/index.vue"),
+        component: () => import("@/views/login/index.vue")
     },
     {
         path: "/demo",
@@ -31,6 +31,6 @@ export const basicRoutes: Array<any> = [
         meta: {
             title: "模板",
         },
-        component: () => import("@/views/demo/index.vue"),
+        component: () => import("@/views/demo/index.vue")
     },
 ];
